@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Wire+One');
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+abbr { /*去掉下划线。当弹出提示框时*/
+    text-decoration: none;
+}
+
+#css-zen-garden {  /*这是一个id选择器 body应用的样式*/
+    background: #ddd;
+    color: #fff;
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+.page-wrapper {  /*文章，除了额外的图片采用的样式*/
+    background: #000 url("../image/qita/bg.png") no-repeat;
+    left: 100px;/*相对左边偏移100px给主标题  相对于自己原来的位置发生位置的偏移 没有脱离标准流 不会重叠*/
+    position: relative;
+    width: 200px;
+}
+
+a:link {
+    color: antiquewhite;
+    text-decoration: none; /*去掉下划线*/
+}
+
+a:visited {
+    color: burlywood;
+}
+
+a:hover {
+    background: #333;
+}
+
+h1 {  /*这个是主标题*/
+    color: #000;
+    font-family: 'Wire One', sans-serif;
+    font-size: 80px;
+    font-weight: 100;
+    left: -80px;
+    position: relative;
+    writing-mode: tb-rl;
+    opacity: .3;  /*这个是不透明度*/
+}
+
+h2 {  /*这个是副标题*/
+    color: #fff;
+    font-family: 'Tangerine', serif;
+    font-size: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+    word-spacing: 5px; /*字间距*/
+}
+
+.summary,
+.preamble,
+.main {  /*并集 类别选择器 全文采用的样式*/
+    background: #000;
+    opacity: .8;
+    width: 500px;
+}
+
+.sidebar {  /*右上角的选项卡*/
+    background: #000;
+    height: 330px;
+    left: 200px;
+    opacity: .8;
+    position: absolute;  /*绝对布局 脱离了标准流 相对于距离它 最近的 已定位 的 祖先元素 进行移动*/
+    top: 0;
+    width: 300px;
+}
+
+h3 {  /*每一个段落的标题*/
+    padding: 20px 10px 5px;
+}
+
+p { /*每一个段落*/
+    padding: 3px 10px;
+    line-height: 16px;
+}
+
+h3.select,
+h3.archives,
+h3.resources {  /*每一个段落的标题*/
+    margin: 20px 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul {  /*选项卡下去掉下划的横线*/
+    list-style: none;
+}
+
+#design-selection li {  /*这个是选项卡前面的点 隐藏*/
+    font-size: 0;
+    height: 14px;
+    visibility: hidden;
+}
+
+#design-selection li a {
+    font-size: 12px;
+    line-height: 14px;
+    overflow: hidden;  /*装不下的部分隐藏*/
+    visibility: visible;
+    width: 146px;
+}
+
+#design-selection li a:first-child {
+    float: left;
+    text-align: right;
+}
+
+#design-selection li a:last-child {
+    float: right;
+}
+
+li.next,  /*第二 第三选项卡的派生选择器*/
+li.viewall { /*对内行内 对外块级*/
+    display: inline-block;
+}
+
+li.next a,
+li.viewall a {
+    display: inline-block;
+    width: 146px;
+}
+
+li.next a {
+    float: left;
+    text-align: right;
+}
+
+.indicator {
+    display: none;
+}
+
+li.viewall a {
+    float: right;
+}
+
+.zen-resources {
+    text-align: center;
+}
+
+.requirements {  /*最后一段*/
+    padding-bottom: 20px;
+}
+
+footer {  /*底部导航栏*/
+    border-top: #fff 1px solid;
+    font-size: 16px;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px;
+}
+
+footer a {
+    margin-right: 10px;
+}
+
+/*添加自适应  在屏幕宽度小于500px时适应的样式*/
+@media only screen and (max-width: 500px) {
+    .page-wrapper {  /*文章，除了额外的图片采用的样式*/
+        background: #000 url("../image/qita/bg-small.png") no-repeat;
+        background-size: contain;  /*图片不剪切 等比例缩小*/
+        left: 0;
+        opacity: .8;
+        position: relative;
+        top: 150px;
+            width: 100%;  /*宽度是全部*/
+    }
+
+    h1 {
+        color: #000;
+        font-family: 'Wire One', sans-serif;
+        font-size: 4em;
+        font-weight: 100;
+        left: 0;
+        line-height: 100px;
+        opacity: .3;
+        position: relative;
+        text-align: center;
+        top: -150px;
+        writing-mode: horizontal-tb;
+        width: 100%;
+    }
+
+    h2 {
+        color: #900;
+        font-family: 'Tangerine', serif;
+        font-size: 1.5em;
+        margin-bottom: 80px;
+        position: relative;
+        text-align: center;
+        top: -150px;
+        width: 100%;
+        word-spacing: 5px; /*字间距*/
+    }
+
+    .summary,
+    .preamble,
+    .main {
+        background: #000;
+        opacity: .8;
+        width: 100%;
+    }
+
+    .sidebar { /*选项卡*/
+        background: #000;
+        opacity: .8;
+        position: static;
+        width: 100%
+    }
+
+    #design-selection li a {
+        width: 48%;
+    }
+
+    li.next,
+    li.viewall {
+        text-align: center;
+        width: 48%;
+    }
+
+    li.viewall {
+        float: right;
+    }
+
+    li.next a {
+        text-align: right;
+        width: 100%;
+    }
+
+    li.viewall a {
+        text-align: left;
+        width: 100%;
+    }
+
+    footer {
+        background: #000;
+        border-top: #fff 1px solid;
+        bottom: -41px;
+        font-size: 16px;
+        height: 20px;
+        left: 0;
+        line-height: 20px;
+        padding: 10px 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+    }
+
+    footer a:first-child {
+        margin-left: 10px;
+    }
+}
