@@ -9,6 +9,44 @@
     <script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
+
+按钮组
+<div class="container">
+    <button class="btn">BUTTON</button>
+    <button class="btn btn-success btn-lg btn-block active">BUTTON 竖向按钮</button>
+    <div class="btn-group btn-group-vertical">
+        <input class="btn btn-danger" type="button" value="BUTTON1">
+        <input class="btn btn-danger" type="button" value="BUTTON2">
+        <input class="btn btn-danger" type="button" value="BUTTON3">
+        <a class="btn btn-primary" href="">link1...</a>
+        <a class="btn btn-primary" href="">link2...</a>
+        <a class="btn btn-primary" href="">link3...</a>
+    </div>
+    <button class="btn btn-danger btn-xs disabled">BUTTON</button>
+    <hr>
+    <div class="btn-group">   <!--按钮组-->
+        <button class="btn btn-primary">Apple</button>
+        <button class="btn btn-primary">Samsung</button>
+        <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Sony <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Tablet</a></li>
+                <li><a href="#">Smartphone</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+栅格
+<div class="container">
+<div class="row">
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-8">.col-sm-8</div>
+</div>
+</div>
+图片
+<img class="img-circle img-responsive" src="data/image/test.png">
 以下是选择框
 <nav class="navbar navbar-inverse">
     <div style="width: 100px">

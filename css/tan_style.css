@@ -12,7 +12,7 @@ abbr { /*去掉下划线。当弹出提示框时*/
 
 #css-zen-garden {  /*这是一个id选择器 body应用的样式*/
     background: #ddd;
-    color: #fff;
+    color: #000;
     font-family: Verdana, sans-serif;
     font-size: 12px;
     font-weight: 100;
