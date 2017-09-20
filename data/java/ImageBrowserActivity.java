@@ -45,7 +45,7 @@ public class ImageBrowserActivity extends BaseActivity implements OnClickListene
 	private void initData() {
 		status = (Status) getIntent().getSerializableExtra("status");
 		position = getIntent().getIntExtra("position", 0);
-		// è·å–å›¾ç‰‡æ•°æ®é›†åˆ(å•å›¾ä¹Ÿæœ‰å¯¹åº”çš„é›†åˆ,é›†åˆçš„sizeä¸º1)
+		// »ñÈ¡Í¼Æ¬Êı¾İ¼¯ºÏ(µ¥Í¼Ò²ÓĞ¶ÔÓ¦µÄ¼¯ºÏ,¼¯ºÏµÄsizeÎª1)
 		imgUrls = status.getPic_urls();
 	}
 
@@ -116,9 +116,9 @@ public class ImageBrowserActivity extends BaseActivity implements OnClickListene
 			String insertImage = MediaStore.Images.Media.insertImage(
 					getContentResolver(), bitmap, title, "BoreWBImage");
 			if(insertImage == null) {
-				showToast("å›¾ç‰‡ä¿å­˜å¤±è´¥");
+				showToast("Í¼Æ¬±£´æÊ§°Ü");
 			} else {
-				showToast("å›¾ç‰‡ä¿å­˜æˆåŠŸ");
+				showToast("Í¼Æ¬±£´æ³É¹¦");
 			}
 			
 //			try {
