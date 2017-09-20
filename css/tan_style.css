@@ -29,12 +29,12 @@ abbr { /*去掉下划线。当弹出提示框时*/
 }
 
 a:link {
-    color: antiquewhite;
+    color: #0f0f0f; /* 这里决定链接的颜色*/
     text-decoration: none; /*去掉下划线*/
 }
 
 a:visited {
-    color: burlywood;
+    color: red;  /* 这里决定链接的颜色*/
 }
 
 a:hover {
