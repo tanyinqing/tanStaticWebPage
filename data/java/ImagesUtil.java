@@ -32,12 +32,12 @@ public class ImagesUtil {
     public static final String TAG = "ImagesUtil.class";
 
     /**
-     * æœ‰ä¸¤ç§åŠæ³•å°†ç…§ç‰‡åŠ è½½åˆ°bitmapä¸­ï¼š1.é€šè¿‡uriç”¨streamçš„æ–¹å¼
+     * ÓĞÁ½ÖÖ°ì·¨½«ÕÕÆ¬¼ÓÔØµ½bitmapÖĞ£º1.Í¨¹ıuriÓÃstreamµÄ·½Ê½
      * @param mContext Context
-     * @param uri  èµ„æºuri
-     * @param width åŠ è½½åç¼©æ”¾åˆ°çš„ç›®æ ‡å®½åº¦
-     * @param height åŠ è½½åç¼©æ”¾åˆ°çš„ç›®æ ‡é«˜åº¦
-     * @return åŠ è½½å¹¶ç¼©æ”¾åçš„ä½å›¾
+     * @param uri  ×ÊÔ´uri
+     * @param width ¼ÓÔØºóËõ·Åµ½µÄÄ¿±ê¿í¶È
+     * @param height ¼ÓÔØºóËõ·Åµ½µÄÄ¿±ê¸ß¶È
+     * @return ¼ÓÔØ²¢Ëõ·ÅºóµÄÎ»Í¼
      */
     public static Bitmap loadBitmap(Context mContext, Uri uri, int width,int 
 	height,int mark) {
@@ -46,23 +46,23 @@ public class ImagesUtil {
             ContentResolver resolver = mContext.getContentResolver();
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = Bitmap.Config.RGB_565;  // FaceDetecor
-			åªèƒ½è¯»å–RGB 565æ ¼å¼çš„Bitmap
+			Ö»ÄÜ¶ÁÈ¡RGB 565¸ñÊ½µÄBitmap
             Bitmap bitmap = 
 			BitmapFactory.decodeStream(resolver.openInputStream(uri), null, 
 			options);
             mBitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height);  
-			 // ç¼©æ”¾ä½å›¾åˆ°æŒ‡å®šå¤§å°
+			 // Ëõ·ÅÎ»Í¼µ½Ö¸¶¨´óĞ¡
         } catch (FileNotFoundException ex) {
-            //Log.e(mContext.getPackageName(), "å›¾åƒåŠ è½½å¼‚å¸¸: " + 
+            //Log.e(mContext.getPackageName(), "Í¼Ïñ¼ÓÔØÒì³£: " + 
 			ex.getMessage());
-            MyLog.ShowLog("å›¾åƒåŠ è½½å¼‚å¸¸: " + ex.getMessage());
-            // å›¾ç‰‡çš„å¤§å°æ˜¯400 600
+            MyLog.ShowLog("Í¼Ïñ¼ÓÔØÒì³£: " + ex.getMessage());
+            // Í¼Æ¬µÄ´óĞ¡ÊÇ400 600
             if (mark==1){
                 Bitmap 
 				mBitmap1=BitmapFactory.decodeResource(ServiceApplication.getIns
 				tance().getResources(), R.drawable.miss_photo);
                 return ThumbnailUtils.extractThumbnail(mBitmap1, width, 
-				height);   // ç¼©æ”¾ä½å›¾åˆ°æŒ‡å®šå¤§å°
+				height);   // Ëõ·ÅÎ»Í¼µ½Ö¸¶¨´óĞ¡
             }else if (mark==0){
 
             }
@@ -71,24 +71,24 @@ public class ImagesUtil {
     }
 
     /**
-     * æœ‰ä¸¤ç§åŠæ³•å°†ç…§ç‰‡åŠ è½½åˆ°bitmapä¸­ï¼š2.ç”¨ç…§ç‰‡çš„çœŸå®è·¯å¾„åŠ è½½
-     * @param path  è¢«åŠ è½½çš„å›¾åƒçš„è·¯å¾„
-     * @param width åŠ è½½åç¼©æ”¾åˆ°çš„ç›®æ ‡å®½åº¦
-     * @param height åŠ è½½åç¼©æ”¾åˆ°çš„ç›®æ ‡é«˜åº¦
-     * @return åŠ è½½å¹¶ç¼©æ”¾åçš„ä½å›¾
+     * ÓĞÁ½ÖÖ°ì·¨½«ÕÕÆ¬¼ÓÔØµ½bitmapÖĞ£º2.ÓÃÕÕÆ¬µÄÕæÊµÂ·¾¶¼ÓÔØ
+     * @param path  ±»¼ÓÔØµÄÍ¼ÏñµÄÂ·¾¶
+     * @param width ¼ÓÔØºóËõ·Åµ½µÄÄ¿±ê¿í¶È
+     * @param height ¼ÓÔØºóËõ·Åµ½µÄÄ¿±ê¸ß¶È
+     * @return ¼ÓÔØ²¢Ëõ·ÅºóµÄÎ»Í¼
      */
     public static Bitmap loadBitmap(String path, int width, int height) {
         Bitmap mBitmap = null;
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;  // FaceDetecoråª
-		èƒ½è¯»å–RGB 565æ ¼å¼çš„Bitmap
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;  // FaceDetecorÖ»
+		ÄÜ¶ÁÈ¡RGB 565¸ñÊ½µÄBitmap
         Bitmap bitmap = BitmapFactory.decodeFile(path, options);
         mBitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height);  // 
-		ç¼©æ”¾ä½å›¾
+		Ëõ·ÅÎ»Í¼
         return mBitmap;
     }
 
-    // è·å¾—ç…§ç‰‡çš„çœŸå®è·¯å¾„
+    // »ñµÃÕÕÆ¬µÄÕæÊµÂ·¾¶
     public static String obtainFilePath(Context context, Uri uri){
         String filePath = null;
         String[] projection = { MediaStore.Images.Media.DATA };
@@ -105,20 +105,20 @@ public class ImagesUtil {
         return filePath;
     }
 
-    // å°†å›¾ç‰‡ä¿å­˜åˆ°SDå¡ä¸­  ä¸ºä»€ä¹ˆè¿™ä¸ªæ–¹æ³•æ€»æ˜¯æŠ¥é”™  å› ä¸ºæ²¡æœ‰åŠ ä¸Šå†™å†…å­˜å¡çš„æƒé™
+    // ½«Í¼Æ¬±£´æµ½SD¿¨ÖĞ  ÎªÊ²Ã´Õâ¸ö·½·¨×ÜÊÇ±¨´í  ÒòÎªÃ»ÓĞ¼ÓÉÏĞ´ÄÚ´æ¿¨µÄÈ¨ÏŞ
     public static Uri saveImage(Bitmap bitmap) throws FileNotFoundException {
-        //å…ˆåˆ¤æ–­æ‰‹æœºæ˜¯å¦è£…æœ‰SDå¡,å¹¶å¯ä»¥è¿›è¡Œè¯»å†™
+        //ÏÈÅĞ¶ÏÊÖ»úÊÇ·ñ×°ÓĞSD¿¨,²¢¿ÉÒÔ½øĞĞ¶ÁĞ´
         if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUN
 		TED)){
 //            Toast.makeText(getApplicationContext(),
-//                    "æ²¡æœ‰SDå¡,æ— æ³•ä¿å­˜å›¾åƒ.", Toast.LENGTH_SHORT).show();
-            Log.e("ImagesUtil.java","æ²¡æœ‰SDå¡,æ— æ³•ä¿å­˜å›¾åƒ.");
+//                    "Ã»ÓĞSD¿¨,ÎŞ·¨±£´æÍ¼Ïñ.", Toast.LENGTH_SHORT).show();
+            Log.e("ImagesUtil.java","Ã»ÓĞSD¿¨,ÎŞ·¨±£´æÍ¼Ïñ.");
             return null;
         }
 
-        //æ–‡ä»¶çš„ä¿å­˜è·¯å¾„
+        //ÎÄ¼şµÄ±£´æÂ·¾¶
         String[] file_path=new String[7];
-        file_path[0]="ç‡ƒæ°”å·¥ç¨‹";
+        file_path[0]="È¼Æø¹¤³Ì";
         file_path[1]= 
 		ServiceApplication.getInstance().readUser().getU_RealName();
         file_path[2]= 
@@ -137,73 +137,73 @@ public class ImagesUtil {
 		ServiceApplication.mPrefUtil.getStrSetting(Constant.YongMuMingZi);
         file_path[6]= 
 		ServiceApplication.mPrefUtil.getStrSetting("AnJianXiangId");
-       /* file_path[1]="æœé˜³åŒºç”˜éœ²å›­1åŒº";
-        file_path[2]="6å·æ¥¼";
-        file_path[3]="4å•å…ƒ";
-        file_path[4]="301å®¤";*/
+       /* file_path[1]="³¯ÑôÇø¸ÊÂ¶Ô°1Çø";
+        file_path[2]="6ºÅÂ¥";
+        file_path[3]="4µ¥Ôª";
+        file_path[4]="301ÊÒ";*/
 
-        //æ–‡ä»¶å‘½åçš„æ—¶é—´æˆåˆ†
+        //ÎÄ¼şÃüÃûµÄÊ±¼ä³É·Ö
         Calendar calendar=Calendar.getInstance();
         Date data=calendar.getTime();
         SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time=format.format(data);
 
-        // è·å¾—å¤–éƒ¨SDå¡,åˆ›å»ºæœ¬åº”ç”¨ç¨‹åºçš„ä¿å­˜ç›®å½•,ä¿å­˜ç›¸ç‰‡
+        // »ñµÃÍâ²¿SD¿¨,´´½¨±¾Ó¦ÓÃ³ÌĞòµÄ±£´æÄ¿Â¼,±£´æÏàÆ¬
         File sdCard = Environment.getExternalStorageDirectory();
         // File photoDir = new1 File(sdCard.getAbsolutePath() + "/mycamera");
          File photoDir = new File(sdCard.getAbsolutePath() + 
 		 "/"+file_path[0]+"/"+file_path[1]+"/"+file_path[2]+"/"+file_path[3]+"/
 		 "+file_path[4]+"/"+file_path[5]+"/"+file_path[6]);
-        MyLog.ShowLog("ä¿å­˜å›¾åƒåœ°å€"+photoDir.getAbsolutePath());
-        LogTxt.writeLog(photoDir.getAbsolutePath(), "å›¾ç‰‡ä¿å­˜çš„åœ°å€");
+        MyLog.ShowLog("±£´æÍ¼ÏñµØÖ·"+photoDir.getAbsolutePath());
+        LogTxt.writeLog(photoDir.getAbsolutePath(), "Í¼Æ¬±£´æµÄµØÖ·");
         if(!photoDir.exists()){
             photoDir.mkdirs();
         }
        // File photo = new1 File(photoDir,(new1 Date()).getTime() + ".jpeg");
-        File photo = new File(photoDir,"13 ç‡ƒæ°”è¡¨è…èš€è€åŒ–"+time+".jpeg");
-       MyLog.ShowLog("åˆ›å»ºphotoæ–‡ä»¶");
-        FileOutputStream fOut = new FileOutputStream(photo); //è¿™å¥å‡ºçš„bug
-        MyLog.ShowLog("è¾“å‡ºæµæ–‡ä»¶åˆ›å»ºå®Œæˆ");
-        // æŠŠæ•°æ®å†™å…¥æ–‡ä»¶.ä¸‹é¢çš„100å‚æ•°è¡¨ç¤ºä¸å‹ç¼©
+        File photo = new File(photoDir,"13 È¼Æø±í¸¯Ê´ÀÏ»¯"+time+".jpeg");
+       MyLog.ShowLog("´´½¨photoÎÄ¼ş");
+        FileOutputStream fOut = new FileOutputStream(photo); //Õâ¾ä³öµÄbug
+        MyLog.ShowLog("Êä³öÁ÷ÎÄ¼ş´´½¨Íê³É");
+        // °ÑÊı¾İĞ´ÈëÎÄ¼ş.ÏÂÃæµÄ100²ÎÊı±íÊ¾²»Ñ¹Ëõ
         bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fOut);
 
-        // è§£æå›¾ç‰‡çš„Uriï¼Œç”¨å®ƒä¼ é€’åˆ†äº«å›¾ç‰‡
+        // ½âÎöÍ¼Æ¬µÄUri£¬ÓÃËü´«µİ·ÖÏíÍ¼Æ¬
         return Uri.parse("file://" + photo.getAbsolutePath());
 //        Toast.makeText(this,uri.toString(),Toast.LENGTH_LONG).show();
     }
 
-    // æ˜¾ç¤ºç¼“å­˜çš„å›¾ç‰‡(ä½¿ç”¨äº†SmartAndroidä¸­çš„
+    // ÏÔÊ¾»º´æµÄÍ¼Æ¬(Ê¹ÓÃÁËSmartAndroidÖĞµÄ
 	com.tandong.sa.zUImageLoader.core.ImageLoader)
   /*  public void displayImage(String imageUrl, ImageView imageView){
         DisplayImageOptions options;
         options = new1 DisplayImageOptions.Builder()
-                .showImageOnLoading(R.mipmap.ic_launcher)       // è®¾ç½®å›¾ç‰‡åœ¨ä¸‹
-				è½½æœŸé—´æ˜¾ç¤ºçš„å›¾ç‰‡
-                .showImageForEmptyUri(R.mipmap.ic_launcher)     // è®¾ç½®å›¾ç‰‡Uri
-				ä¸ºç©ºæˆ–æ˜¯é”™è¯¯çš„æ—¶å€™æ˜¾ç¤ºçš„å›¾ç‰‡
-                .showImageOnFail(R.mipmap.ic_launcher)          // è®¾ç½®å›¾ç‰‡åŠ è½½
-				/è§£ç è¿‡ç¨‹ä¸­é”™è¯¯æ—¶å€™æ˜¾ç¤ºçš„å›¾ç‰‡
-                .cacheInMemory(true)        // è®¾ç½®ä¸‹è½½çš„å›¾ç‰‡æ˜¯å¦ç¼“å­˜åœ¨å†…å­˜ä¸­
-                .cacheOnDisc(true)          // è®¾ç½®ä¸‹è½½çš„å›¾ç‰‡æ˜¯å¦ç¼“å­˜åœ¨SDå¡ä¸­
-                .considerExifParams(true)   // æ˜¯å¦è€ƒè™‘JPEGå›¾åƒEXIFå‚æ•°ï¼ˆæ—‹è½¬ï¼Œ
-				ç¿»è½¬ï¼‰
-                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)   // è®¾ç½®å›¾ç‰‡
-				ä»¥å¦‚ä½•çš„ç¼–ç æ–¹å¼æ˜¾ç¤º
-                .bitmapConfig(Bitmap.Config.RGB_565)                // è®¾ç½®å›¾ç‰‡
-				çš„è§£ç ç±»å‹
+                .showImageOnLoading(R.mipmap.ic_launcher)       // ÉèÖÃÍ¼Æ¬ÔÚÏÂ
+				ÔØÆÚ¼äÏÔÊ¾µÄÍ¼Æ¬
+                .showImageForEmptyUri(R.mipmap.ic_launcher)     // ÉèÖÃÍ¼Æ¬Uri
+				Îª¿Õ»òÊÇ´íÎóµÄÊ±ºòÏÔÊ¾µÄÍ¼Æ¬
+                .showImageOnFail(R.mipmap.ic_launcher)          // ÉèÖÃÍ¼Æ¬¼ÓÔØ
+				/½âÂë¹ı³ÌÖĞ´íÎóÊ±ºòÏÔÊ¾µÄÍ¼Æ¬
+                .cacheInMemory(true)        // ÉèÖÃÏÂÔØµÄÍ¼Æ¬ÊÇ·ñ»º´æÔÚÄÚ´æÖĞ
+                .cacheOnDisc(true)          // ÉèÖÃÏÂÔØµÄÍ¼Æ¬ÊÇ·ñ»º´æÔÚSD¿¨ÖĞ
+                .considerExifParams(true)   // ÊÇ·ñ¿¼ÂÇJPEGÍ¼ÏñEXIF²ÎÊı£¨Ğı×ª£¬
+				·­×ª£©
+                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)   // ÉèÖÃÍ¼Æ¬
+				ÒÔÈçºÎµÄ±àÂë·½Ê½ÏÔÊ¾
+                .bitmapConfig(Bitmap.Config.RGB_565)                // ÉèÖÃÍ¼Æ¬
+				µÄ½âÂëÀàĞÍ
 //                .decodingOptions(BitmapFactory.Options decodingOptions)      
-         //è®¾ç½®å›¾ç‰‡çš„è§£ç é…ç½®
+         //ÉèÖÃÍ¼Æ¬µÄ½âÂëÅäÖÃ
                 //.delayBeforeLoading(int delayInMillis)        //int 
-				delayInMillisä¸ºä½ è®¾ç½®çš„ä¸‹è½½å‰çš„å»¶è¿Ÿæ—¶é—´
-                //.preProcessor(BitmapProcessor preProcessor)   //è®¾ç½®å›¾ç‰‡åŠ å…¥
-				ç¼“å­˜å‰ï¼Œå¯¹bitmapè¿›è¡Œè®¾ç½®
-                .resetViewBeforeLoading(true)                   //è®¾ç½®å›¾ç‰‡åœ¨ä¸‹
-				è½½å‰æ˜¯å¦é‡ç½®ï¼Œå¤ä½
-                .displayer(new1 RoundedBitmapDisplayer(20))      //æ˜¯å¦è®¾ç½®ä¸ºåœ†
-				è§’ï¼Œå¼§åº¦ä¸ºå¤šå°‘
-                .displayer(new1 FadeInBitmapDisplayer(100))      //æ˜¯å¦å›¾ç‰‡åŠ è½½
-				å¥½åæ¸å…¥çš„åŠ¨ç”»æ—¶é—´
-                .build();                   // æ„å»ºå®Œæˆ
+				delayInMillisÎªÄãÉèÖÃµÄÏÂÔØÇ°µÄÑÓ³ÙÊ±¼ä
+                //.preProcessor(BitmapProcessor preProcessor)   //ÉèÖÃÍ¼Æ¬¼ÓÈë
+				»º´æÇ°£¬¶Ôbitmap½øĞĞÉèÖÃ
+                .resetViewBeforeLoading(true)                   //ÉèÖÃÍ¼Æ¬ÔÚÏÂ
+				ÔØÇ°ÊÇ·ñÖØÖÃ£¬¸´Î»
+                .displayer(new1 RoundedBitmapDisplayer(20))      //ÊÇ·ñÉèÖÃÎªÔ²
+				½Ç£¬»¡¶ÈÎª¶àÉÙ
+                .displayer(new1 FadeInBitmapDisplayer(100))      //ÊÇ·ñÍ¼Æ¬¼ÓÔØ
+				ºÃºó½¥ÈëµÄ¶¯»­Ê±¼ä
+                .build();                   // ¹¹½¨Íê³É
 
         XlwApplication.getInstance().getImageLoader().displayImage(imageUrl, 
 		imageView, options);
@@ -211,69 +211,69 @@ public class ImagesUtil {
 }
 
 /*
-åŠ è½½å›¾ç‰‡æ–¹æ³•ï¼š
-1.ç›´æ¥åŠ è½½ï¼š
-imageLoader.displayImage(imageUrl, imageView); // imageUrlä»£è¡¨å›¾ç‰‡çš„URLåœ°å€
-ï¼ŒimageViewä»£è¡¨æ‰¿è½½å›¾ç‰‡çš„IMAGEVIEWæ§ä»¶ ã€€
+¼ÓÔØÍ¼Æ¬·½·¨£º
+1.Ö±½Ó¼ÓÔØ£º
+imageLoader.displayImage(imageUrl, imageView); // imageUrl´ú±íÍ¼Æ¬µÄURLµØÖ·
+£¬imageView´ú±í³ĞÔØÍ¼Æ¬µÄIMAGEVIEW¿Ø¼ş ¡¡
 
-2.åŠ è½½è‡ªå®šä¹‰é…ç½®çš„ä¸€ä¸ªå›¾ç‰‡ï¼š
-imageLoader.displayImage(imageUrl, imageViewï¼Œoptions); // imageUrlä»£è¡¨å›¾ç‰‡çš„
-URLåœ°å€ï¼ŒimageViewä»£è¡¨æ‰¿è½½å›¾ç‰‡çš„IMAGEVIEWæ§ä»¶ ï¼Œ optionsä»£è¡¨DisplayImageOptions
-é…ç½®æ–‡ä»¶
+2.¼ÓÔØ×Ô¶¨ÒåÅäÖÃµÄÒ»¸öÍ¼Æ¬£º
+imageLoader.displayImage(imageUrl, imageView£¬options); // imageUrl´ú±íÍ¼Æ¬µÄ
+URLµØÖ·£¬imageView´ú±í³ĞÔØÍ¼Æ¬µÄIMAGEVIEW¿Ø¼ş £¬ options´ú±íDisplayImageOptions
+ÅäÖÃÎÄ¼ş
 
-3.å›¾ç‰‡åŠ è½½æ—¶å€™å¸¦åŠ è½½æƒ…å†µçš„ç›‘å¬
+3.Í¼Æ¬¼ÓÔØÊ±ºò´ø¼ÓÔØÇé¿öµÄ¼àÌı
 imageLoader.displayImage(imageUrl, imageView, options, new1 
 ImageLoadingListener() {
     @Override
     public void onLoadingStarted() {
-       //å¼€å§‹åŠ è½½çš„æ—¶å€™æ‰§è¡Œ
+       //¿ªÊ¼¼ÓÔØµÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingFailed(FailReason failReason) {
-       //åŠ è½½å¤±è´¥çš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØÊ§°ÜµÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingComplete(Bitmap loadedImage) {
-       //åŠ è½½æˆåŠŸçš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØ³É¹¦µÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingCancelled() {
-       //åŠ è½½å–æ¶ˆçš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØÈ¡ÏûµÄÊ±ºòÖ´ĞĞ
 
     }});
 
-4.å›¾ç‰‡åŠ è½½æ—¶å€™ï¼Œå¸¦ç›‘å¬åˆå¸¦åŠ è½½è¿›åº¦æ¡çš„æƒ…å†µ
+4.Í¼Æ¬¼ÓÔØÊ±ºò£¬´ø¼àÌıÓÖ´ø¼ÓÔØ½ø¶ÈÌõµÄÇé¿ö
 
 imageLoader.displayImage(imageUrl, imageView, options, new1 
 ImageLoadingListener() {
     @Override
     public void onLoadingStarted() {
-       //å¼€å§‹åŠ è½½çš„æ—¶å€™æ‰§è¡Œ
+       //¿ªÊ¼¼ÓÔØµÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingFailed(FailReason failReason) {
-       //åŠ è½½å¤±è´¥çš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØÊ§°ÜµÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingComplete(Bitmap loadedImage) {
-       //åŠ è½½æˆåŠŸçš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØ³É¹¦µÄÊ±ºòÖ´ĞĞ
     }
     @Override
     public void onLoadingCancelled() {
-       //åŠ è½½å–æ¶ˆçš„æ—¶å€™æ‰§è¡Œ
+       //¼ÓÔØÈ¡ÏûµÄÊ±ºòÖ´ĞĞ
     },new1 ImageLoadingProgressListener() {
       @Override
       public void onProgressUpdate(String imageUri, View view, int current,int 
 	  total) {
-      //åœ¨è¿™é‡Œæ›´æ–° ProgressBarçš„è¿›åº¦ä¿¡æ¯
+      //ÔÚÕâÀï¸üĞÂ ProgressBarµÄ½ø¶ÈĞÅÏ¢
       }
     });
  */
 /*
-åŠ è½½æœ¬åœ°å›¾ç‰‡ï¼š
+¼ÓÔØ±¾µØÍ¼Æ¬£º
 String imageUri = "http://site.com/image.png";      // from Web
-String imageUri = "file:///mnt/sdcard/image.png";   // from SD card  è¿™ä¸ªæ–¹æ³•å¯
-èƒ½ä¸å¯¹
+String imageUri = "file:///mnt/sdcard/image.png";   // from SD card  Õâ¸ö·½·¨¿É
+ÄÜ²»¶Ô
 String imageUri = "content://media/external/audio/albumart/13";     // from 
 content provider
 String imageUri = "assets://image.png";             // from assets
