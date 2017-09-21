@@ -60,7 +60,7 @@
 
 // 使用系统当前日期加以调整作为照片的名称
     public String getPhotoFileName() {
-         /* ????????????????
+         /*
       Date date = new1 Date(System.currentTimeMillis());
        SimpleDateFormat dateFormat = new1 
 	   SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");

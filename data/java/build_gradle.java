@@ -1,59 +1,58 @@
-studioÊ¹ÓÃ
-ÕÒ²»µ½ÑùÊ½  Theme.Dialog
-compileSdkVersion ´Ó19±ä³É22¾Í¿ÉÒÔÁË¡£
+studioä½¿ç”¨
+		æ‰¾ä¸åˆ°æ ·å¼  Theme.Dialog
+		compileSdkVersion ä»19å˜æˆ22å°±å¯ä»¥äº†ã€‚
 
-apply plugin: 'com.android.application'
+		apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 22
-	buildToolsVersion "21.1.2"
+		android {
+		compileSdkVersion 22
+		buildToolsVersion "21.1.2"
 
-CompileSdkVersionÊÇÄãSDKµÄ°æ±¾ºÅ£¬Ò²¾ÍÊÇAPI Level£¬ÀıÈçAPI-19¡¢API-20¡¢API-21µÈ
-µÈ¡£   
-buildeToolVersionÊÇÄã¹¹½¨¹¤¾ßµÄ°æ±¾£¬ÆäÖĞ°üÀ¨ÁË´ò°ü¹¤¾ßaapt¡¢dxµÈµÈ¡£Õâ¸ö¹¤¾ßµÄ
-Ä¿Â¼Î»ÓÚ..your_sdk_path/build-tools/XX.XX.XX
-Õâ¸ö°æ±¾ºÅÒ»°ãÊÇAPI-LEVEL.0.0¡£ ÀıÈçI/O2014´ó»áÉÏ·¢²¼ÁËAPI20¶ÔÓ¦µÄbuild-toolµÄ°æ
-±¾¾ÍÊÇ20.0.0
-ÔÚÕâÖ®¼ä¿ÉÄÜÓĞĞ¡°æ±¾£¬ÀıÈç20.0.1µÈµÈ¡£
-	ÔÚecpliseµÄproject.propertiesÖĞ¿ÉÒÔÉèÖÃsdk.buildtools=17.0.0¡£Ò²¿ÉÒÔ²»ÉèÖÃ²»
-	ÉèÖÃµÄ»°¾ÍÊÇÖ¸¶¨×îĞÂ°æ±¾¡£¶øÔÚandroid studioÖĞÊÇ±ØĞëÔÚbuild.gradleÖĞÉèÖÃ
+		CompileSdkVersionæ˜¯ä½ SDKçš„ç‰ˆæœ¬å·ï¼Œä¹Ÿå°±æ˜¯API Levelï¼Œä¾‹å¦‚API-19ã€API-20ã€API-21ç­‰
+		ç­‰ã€‚
+		buildeToolVersionæ˜¯ä½ æ„å»ºå·¥å…·çš„ç‰ˆæœ¬ï¼Œå…¶ä¸­åŒ…æ‹¬äº†æ‰“åŒ…å·¥å…·aaptã€dxç­‰ç­‰ã€‚è¿™ä¸ªå·¥å…·çš„
+		ç›®å½•ä½äº..your_sdk_path/build-tools/XX.XX.XX
+		è¿™ä¸ªç‰ˆæœ¬å·ä¸€èˆ¬æ˜¯API-LEVEL.0.0ã€‚ ä¾‹å¦‚I/O2014å¤§ä¼šä¸Šå‘å¸ƒäº†API20å¯¹åº”çš„build-toolçš„ç‰ˆ
+		æœ¬å°±æ˜¯20.0.0
+		åœ¨è¿™ä¹‹é—´å¯èƒ½æœ‰å°ç‰ˆæœ¬ï¼Œä¾‹å¦‚20.0.1ç­‰ç­‰ã€‚
+		åœ¨ecpliseçš„project.propertiesä¸­å¯ä»¥è®¾ç½®sdk.buildtools=17.0.0ã€‚ä¹Ÿå¯ä»¥ä¸è®¾ç½®ä¸
+		è®¾ç½®çš„è¯å°±æ˜¯æŒ‡å®šæœ€æ–°ç‰ˆæœ¬ã€‚è€Œåœ¨android studioä¸­æ˜¯å¿…é¡»åœ¨build.gradleä¸­è®¾ç½®
 
-    defaultConfig {
-        applicationId "com.linyou.lifeservice"
-        minSdkVersion 14
-        targetSdkVersion 18
-    }
+		defaultConfig {
+		applicationId "com.linyou.lifeservice"
+		minSdkVersion 14
+		targetSdkVersion 18
+		}
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 
-			'proguard-rules.txt'
-        }
-    }
-}
+		buildTypes {
+		release {
+		minifyEnabled false
+		proguardFiles getDefaultProguardFile('proguard-android.txt'),
+		'proguard-rules.txt'
+		}
+		}
+		}
 
-dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
-    compile files('libs/andbase.jar')
-    compile files('libs/appcompat_v7.jar')
-    compile files('libs/universal-image-loader-1.9.3.jar')
-    compile files('libs/xUtils-2.6.14.jar')
-    compile files('libs/alipaySdk-20160825.jar')
-    compile files('libs/libammsdk.jar')
-}
-
-
-Äã¿ÉÒÔÓÃ¸ß°æ±¾µÄbuild-toolÈ¥¹¹½¨Ò»¸öµÍ°æ±¾µÄsdk¹¤³Ì£¬ÀıÈçbuild-toolµÄ°æ±¾Îª20£¬
-È¥¹¹½¨Ò»¸ösdk°æ±¾Îª18µÄ
-ÀıÈç£ºcompileSdkVersion 18  
-buildToolsVersion "22.0.1"ÕâÑùÒ²ÊÇOKµÄ¡£
+		dependencies {
+		compile 'com.android.support:support-v4:18.0.0'
+		compile files('libs/andbase.jar')
+		compile files('libs/appcompat_v7.jar')
+		compile files('libs/universal-image-loader-1.9.3.jar')
+		compile files('libs/xUtils-2.6.14.jar')
+		compile files('libs/alipaySdk-20160825.jar')
+		compile files('libs/libammsdk.jar')
+		}
 
 
-ÆäÖĞ±È½ÏÖØÒªµÄÄ¿Â¼°üÀ¨¡¾build-tools¡¿¡¾platforms¡¿¡¾platform-tools¡¿¡¾tools¡¿
-¡¾build-tools¡¿ÀïÃæÊÇ²»Í¬°æ±¾(ÀıÈç21.1.1)µÄbuild¹¤¾ß£¬ÕâĞ©¹¤¾ß°üÀ¨ÁËaapt´ò°ü¹¤¾ß
-¡¢dx.bat¡¢aidl.exeµÈµÈ
-¡¾platform¡¿ÊÇ´æ·Å²»Í¬API-level°æ±¾SDKÄ¿Â¼µÄµØ·½
-¡¾platform-tools¡¿ÊÇÒ»Ğ©androidÆ½Ì¨Ïà¹ØµÄ¹¤¾ß£¬adb¡¢fastbootµÈ
-¡¾tools¡¿ÊÇÖ¸µÄ°²×¿¿ª·¢Ïà¹ØµÄ¹¤¾ß£¬ÀıÈçandroid.bat¡¢ddms.bat(Dalvik debug 
- 
+		ä½ å¯ä»¥ç”¨é«˜ç‰ˆæœ¬çš„build-toolå»æ„å»ºä¸€ä¸ªä½ç‰ˆæœ¬çš„sdkå·¥ç¨‹ï¼Œä¾‹å¦‚build-toolçš„ç‰ˆæœ¬ä¸º20ï¼Œ
+		å»æ„å»ºä¸€ä¸ªsdkç‰ˆæœ¬ä¸º18çš„
+		ä¾‹å¦‚ï¼šcompileSdkVersion 18
+		buildToolsVersion "22.0.1"è¿™æ ·ä¹Ÿæ˜¯OKçš„ã€‚
+
+
+		å…¶ä¸­æ¯”è¾ƒé‡è¦çš„ç›®å½•åŒ…æ‹¬ã€build-toolsã€‘ã€platformsã€‘ã€platform-toolsã€‘ã€toolsã€‘
+		ã€build-toolsã€‘é‡Œé¢æ˜¯ä¸åŒç‰ˆæœ¬(ä¾‹å¦‚21.1.1)çš„buildå·¥å…·ï¼Œè¿™äº›å·¥å…·åŒ…æ‹¬äº†aaptæ‰“åŒ…å·¥å…·
+		ã€dx.batã€aidl.exeç­‰ç­‰
+		ã€platformã€‘æ˜¯å­˜æ”¾ä¸åŒAPI-levelç‰ˆæœ¬SDKç›®å½•çš„åœ°æ–¹
+		ã€platform-toolsã€‘æ˜¯ä¸€äº›androidå¹³å°ç›¸å…³çš„å·¥å…·ï¼Œadbã€fastbootç­‰
+		ã€toolsã€‘æ˜¯æŒ‡çš„å®‰å“å¼€å‘ç›¸å…³çš„å·¥å…·ï¼Œä¾‹å¦‚android.batã€ddms.bat(Dalvik debug
