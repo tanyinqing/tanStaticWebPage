@@ -1,0 +1,5 @@
+设置EditPlus的默认编码
+
+在Tools下拉后选择Configure User Tools，弹出用户配置对话框然后，在下面的对
+话框中的左侧选择Files设置项，在右侧面板中选择UTF-8编码即可：
+最后点击OK，完成设置！
