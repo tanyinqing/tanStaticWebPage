@@ -1,1 +1,2 @@
 UTF-8可以转化成GBK编码，但GBK转化成UTF-8会出现乱码。
+txt格式要用UTF-8格式，java代码要用java格式

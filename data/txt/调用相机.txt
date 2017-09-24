@@ -1,4 +1,4 @@
-µ÷ÓÃÅÄÕÕµÄ·½·¨
+è°ƒç”¨æ‹ç…§çš„æ–¹æ³•
   mHandler.sendEmptyMessage(1);
  
  private Handler mHandler=new Handler(){
@@ -6,13 +6,13 @@
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 1:
-	            	// µ÷ÓÃÏµÍ³µÄÅÄÕÕ¹¦ÄÜ
+	            	// è°ƒç”¨ç³»ç»Ÿçš„æ‹ç…§åŠŸèƒ½
                     Intent intent2 = new
 					Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-				// Ö¸¶¨µ÷ÓÃÏà»úÅÄÕÕºóÕÕÆ¬µÄ´¢´æÂ·¾¶  Íê³É±£´æµÄ¹ı³Ì
+				// æŒ‡å®šè°ƒç”¨ç›¸æœºæ‹ç…§åç…§ç‰‡çš„å‚¨å­˜è·¯å¾„  å®Œæˆä¿å­˜çš„è¿‡ç¨‹
                     intent2.putExtra(MediaStore.EXTRA_OUTPUT,
 					Uri.fromFile(tempFile));
-		        //PHOTO_REQUEST_TAKEPHOTO   Õâ¸öÊÇrequestcode²ÎÊı  ±¾ActivityµÃµ½Í¼Æ¬
+		        //PHOTO_REQUEST_TAKEPHOTO   è¿™ä¸ªæ˜¯requestcodeå‚æ•°  æœ¬Activityå¾—åˆ°å›¾ç‰‡
                     startActivityForResult(intent2, PHOTO_REQUEST_TAKEPHOTO);
                     break;
             }
@@ -26,19 +26,19 @@
         // TODO Auto-generated method stub
 
         switch (requestCode) {
-		//´Ó±¾µØµÃµ½Í¼Æ¬µÄUri ²¢½øĞĞ¼ôÇĞ
+		//ä»æœ¬åœ°å¾—åˆ°å›¾ç‰‡çš„Uri å¹¶è¿›è¡Œå‰ªåˆ‡
             case PHOTO_REQUEST_TAKEPHOTO:
                 if (resultCode== RESULT_OK) {
-		    //±£´æ¾ÜÇ©Í¼Æ¬µÄµØÖ·
+		    //ä¿å­˜æ‹’ç­¾å›¾ç‰‡çš„åœ°å€
                     saveImage();                 
 
 
-                    Toast.makeText(this, "±£´æ³É¹¦",
+                    Toast.makeText(this, "ä¿å­˜æˆåŠŸ",
 					Toast.LENGTH_SHORT).show();
                   
                     finish();
                 }else {
-                    Toast.makeText(this, "±£´æÊ§°Ü",
+                    Toast.makeText(this, "ä¿å­˜å¤±è´¥",
 					Toast.LENGTH_SHORT).show();
                 }
 
@@ -51,14 +51,14 @@
 
 
 
-// ´´½¨Ò»¸öÒÔµ±Ç°Ê±¼äÎªÃû³ÆµÄÎÄ¼ş
+// åˆ›å»ºä¸€ä¸ªä»¥å½“å‰æ—¶é—´ä¸ºåç§°çš„æ–‡ä»¶
     private File tempFile = new 
 	File(Environment.getExternalStorageDirectory(),getPhotoFileName());
 
     private static final int PHOTO_REQUEST_TAKEPHOTO = 1;// ????
 
 
-// Ê¹ÓÃÏµÍ³µ±Ç°ÈÕÆÚ¼ÓÒÔµ÷Õû×÷ÎªÕÕÆ¬µÄÃû³Æ
+// ä½¿ç”¨ç³»ç»Ÿå½“å‰æ—¥æœŸåŠ ä»¥è°ƒæ•´ä½œä¸ºç…§ç‰‡çš„åç§°
     public String getPhotoFileName() {
          /*
       Date date = new1 Date(System.currentTimeMillis());
@@ -74,13 +74,13 @@
         final Bitmap photo = ImagesUtil.loadBitmap(this, Uri.fromFile(tempFile), 
 		400, 600,1);
 
-        try {  //ÀûÓÃÍ¼Æ¬µÄ±£´æ¹¤¾ß ½«Ã»ÓĞ¼ô²ÃµÄÍ¼Æ¬±£´æµ½SD¿¨ÄÚ
+        try {  //åˆ©ç”¨å›¾ç‰‡çš„ä¿å­˜å·¥å…· å°†æ²¡æœ‰å‰ªè£çš„å›¾ç‰‡ä¿å­˜åˆ°SDå¡å†…
             Uri uri=ImagesUtil.saveImage(photo);
-		//uri.toString()±£´æµ½Êı¿âÄÚ  ÀûÓÃ uri=Uri.parse(uri.toString());½øĞĞ×ª»¯
+		//uri.toString()ä¿å­˜åˆ°æ•°åº“å†…  åˆ©ç”¨ uri=Uri.parse(uri.toString());è¿›è¡Œè½¬åŒ–
 			?????
             if (uri.toString() !=null){
 
-		µ¯³öÌáÊ¾±£´æ³É¹¦
+		å¼¹å‡ºæç¤ºä¿å­˜æˆåŠŸ
 
             }
         } catch (FileNotFoundException e) {

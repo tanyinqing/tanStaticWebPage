@@ -1,15 +1,15 @@
 
-Í¨¹ıuriÓÃstreamµÄ·½Ê½ ½«ÕÕÆ¬¼ÓÔØµ½bitmapÖĞ  ·µ»Ø¼ÓÔØ²¢Ëõ·ÅºóµÄÎ»Í¼
-        1Îª±ê¼Ç±äÁ¿ 1±íÊ¾£¬Èç¹ûÕÒ²»µ½Õâ¸öÍ¼¾ÍÒªÄ¬ÈÏÍ¼Æ¬´úÌæ
+é€šè¿‡uriç”¨streamçš„æ–¹å¼ å°†ç…§ç‰‡åŠ è½½åˆ°bitmapä¸­  è¿”å›åŠ è½½å¹¶ç¼©æ”¾åçš„ä½å›¾
+        1ä¸ºæ ‡è®°å˜é‡ 1è¡¨ç¤ºï¼Œå¦‚æœæ‰¾ä¸åˆ°è¿™ä¸ªå›¾å°±è¦é»˜è®¤å›¾ç‰‡ä»£æ›¿
 final Bitmap photo = ImagesUtil.loadBitmap(context, Uri.fromFile(tempFile),
         400, 600,1);
 
-        try {   //ÀûÓÃÍ¼Æ¬µÄ±£´æ¹¤¾ß ½«Ã»ÓĞ¼ô²ÃµÄÍ¼Æ¬±£´æµ½SD¿¨ÄÚ
+        try {   //åˆ©ç”¨å›¾ç‰‡çš„ä¿å­˜å·¥å…· å°†æ²¡æœ‰å‰ªè£çš„å›¾ç‰‡ä¿å­˜åˆ°SDå¡å†…
         Uri uri=ImagesUtil.saveImage(photo);
-        //uri.toString()±£´æµ½Êı¿âÄÚ  ÀûÓÃ uri=Uri.parse(uri.toString());½ø
-        ĞĞ×ª»¯
+        //uri.toString()ä¿å­˜åˆ°æ•°åº“å†…  åˆ©ç”¨ uri=Uri.parse(uri.toString());è¿›
+        è¡Œè½¬åŒ–
         if (uri.toString()!=null){
-        //ÔÚÊı¾İ¿â°²¼ìÏî±íÖĞ  ½«ÕÕÆ¬µÄµØÖ·±£´æµ½Êı¾İ¿âÖĞ
+        //åœ¨æ•°æ®åº“å®‰æ£€é¡¹è¡¨ä¸­  å°†ç…§ç‰‡çš„åœ°å€ä¿å­˜åˆ°æ•°æ®åº“ä¸­
         mSecurityStatusDB.insertZhaoPianDiZhi(uri.toString());
 
         } catch (FileNotFoundException e) {
@@ -18,13 +18,13 @@ final Bitmap photo = ImagesUtil.loadBitmap(context, Uri.fromFile(tempFile),
         }
 
 
-// ´´½¨Ò»¸öÒÔµ±Ç°Ê±¼äÎªÃû³ÆµÄÎÄ¼ş
+// åˆ›å»ºä¸€ä¸ªä»¥å½“å‰æ—¶é—´ä¸ºåç§°çš„æ–‡ä»¶
 private File tempFile = new
         File(Environment.getExternalStorageDirectory(),getPhotoFileName());
 
-// Ê¹ÓÃÏµÍ³µ±Ç°ÈÕÆÚ¼ÓÒÔµ÷Õû×÷ÎªÕÕÆ¬µÄÃû³Æ
+// ä½¿ç”¨ç³»ç»Ÿå½“å‰æ—¥æœŸåŠ ä»¥è°ƒæ•´ä½œä¸ºç…§ç‰‡çš„åç§°
 public String getPhotoFileName() {
-         /* ½¨Á¢²»ÖØ¸´µÄÍ¼Æ¬ÎÄ¼ş
+         /* å»ºç«‹ä¸é‡å¤çš„å›¾ç‰‡æ–‡ä»¶
       Date date = new1 Date(System.currentTimeMillis());
        SimpleDateFormat dateFormat = new1 
 	   SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
