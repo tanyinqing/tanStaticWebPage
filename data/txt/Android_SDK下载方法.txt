@@ -1,0 +1,3 @@
+关键词：android SDK 镜像
+
+http://www.androiddevtools.cn/  国内镜像网站
