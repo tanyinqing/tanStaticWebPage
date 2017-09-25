@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MarkdownPad Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<pre><code class="lang-java">
+    package com.gas.Securitycheck.utils;
+
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.CursorLoader;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.ImageView;
+
+import com.gas.Securitycheck.Constant;
+import com.gas.Securitycheck.R;
+import com.gas.Securitycheck.ServiceApplication;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+/**
+ * Created by xinliwei on 2015/7/2.
+ */
+public class ImagesUtil {
+    public static final String TAG = "ImagesUtil.class";
+
+    /**
+     * 有两种办法将照片加载到bitmap中：1.通过uri用stream的方式
+     * @param mContext Context
+     * @param uri  资源uri
+     * @param width 加载后缩放到的目标宽度
+     * @param height 加载后缩放到的目标高度
+     * @return 加载并缩放后的位图
+     */
+    public static Bitmap loadBitmap(Context mContext, Uri uri, int width,int
+	height,int mark) {
+        Bitmap mBitmap = null;
+        try {
+            ContentResolver resolver = mContext.getContentResolver();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;  // FaceDetecor
+			只能读取RGB 565格式的Bitmap
+            Bitmap bitmap =
+			BitmapFactory.decodeStream(resolver.openInputStream(uri), null,
+			options);
+            mBitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height);
+			 // 缩放位图到指定大小
+        } catch (FileNotFoundException ex) {
+            //Log.e(mContext.getPackageName(), "图像加载异常: " +
+			ex.getMessage());
+            MyLog.ShowLog("图像加载异常: " + ex.getMessage());
+            // 图片的大小是400 600
+            if (mark==1){
+                Bitmap
+				mBitmap1=BitmapFactory.decodeResource(ServiceApplication.getIns
+				tance().getResources(), R.drawable.miss_photo);
+                return ThumbnailUtils.extractThumbnail(mBitmap1, width,
+				height);   // 缩放位图到指定大小
+            }else if (mark==0){
+
+            }
+        }
+        return mBitmap;
+    }
+
+    /**
+     * 有两种办法将照片加载到bitmap中：2.用照片的真实路径加载
+     * @param path  被加载的图像的路径
+     * @param width 加载后缩放到的目标宽度
+     * @param height 加载后缩放到的目标高度
+     * @return 加载并缩放后的位图
+     */
+    public static Bitmap loadBitmap(String path, int width, int height) {
+        Bitmap mBitmap = null;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;  // FaceDetecor只
+		能读取RGB 565格式的Bitmap
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        mBitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height);  //
+		缩放位图
+        return mBitmap;
+    }
+
+    // 获得照片的真实路径
+    public static String obtainFilePath(Context context, Uri uri){
+        String filePath = null;
+        String[] projection = { MediaStore.Images.Media.DATA };
+
+        CursorLoader loader = new CursorLoader(context, uri, projection, null,
+                null, null);
+        Cursor cursor = loader.loadInBackground();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            filePath = cursor.getString(cursor.getColumnIndex(projection[0]));
+            cursor.close();
+        }
+        return filePath;
+    }
+
+    // 将图片保存到SD卡中  为什么这个方法总是报错  因为没有加上写内存卡的权限
+    public static Uri saveImage(Bitmap bitmap) throws FileNotFoundException {
+        //先判断手机是否装有SD卡,并可以进行读写
+        if(!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUN
+		TED)){
+//            Toast.makeText(getApplicationContext(),
+//                    "没有SD卡,无法保存图像.", Toast.LENGTH_SHORT).show();
+            Log.e("ImagesUtil.java","没有SD卡,无法保存图像.");
+            return null;
+        }
+
+        //文件的保存路径
+        String[] file_path=new String[7];
+        file_path[0]="燃气工程";
+        file_path[1]=
+		ServiceApplication.getInstance().readUser().getU_RealName();
+        file_path[2]=
+		ServiceApplication.mPrefUtil.getStrSetting(Constant.SP_Id)+"-"+ServiceA
+		pplication.mPrefUtil.getStrSetting(Constant.AnJianCiShu);
+        file_path[3]=
+		(ServiceApplication.mPrefUtil.getStrSetting(Constant.XiaoQuMingZi)).rep
+		lace("#", "");
+        //file_path[3]=
+		ServiceApplication.mPrefUtil.getStrSetting(Constant.YongMuMingZi);
+       // file_path[4]=
+	   ServiceApplication.mPrefUtil.getStrSetting(Constant.LouHao);
+        file_path[4]=
+		ServiceApplication.mPrefUtil.getStrSetting(Constant.DanYuanHao);
+        file_path[5]=
+		ServiceApplication.mPrefUtil.getStrSetting(Constant.YongMuMingZi);
+        file_path[6]=
+		ServiceApplication.mPrefUtil.getStrSetting("AnJianXiangId");
+       /* file_path[1]="朝阳区甘露园1区";
+        file_path[2]="6号楼";
+        file_path[3]="4单元";
+        file_path[4]="301室";*/
+
+        //文件命名的时间成分
+        Calendar calendar=Calendar.getInstance();
+        Date data=calendar.getTime();
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String time=format.format(data);
+
+        // 获得外部SD卡,创建本应用程序的保存目录,保存相片
+        File sdCard = Environment.getExternalStorageDirectory();
+        // File photoDir = new1 File(sdCard.getAbsolutePath() + "/mycamera");
+         File photoDir = new File(sdCard.getAbsolutePath() +
+		 "/"+file_path[0]+"/"+file_path[1]+"/"+file_path[2]+"/"+file_path[3]+"/
+		 "+file_path[4]+"/"+file_path[5]+"/"+file_path[6]);
+        MyLog.ShowLog("保存图像地址"+photoDir.getAbsolutePath());
+        LogTxt.writeLog(photoDir.getAbsolutePath(), "图片保存的地址");
+        if(!photoDir.exists()){
+            photoDir.mkdirs();
+        }
+       // File photo = new1 File(photoDir,(new1 Date()).getTime() + ".jpeg");
+        File photo = new File(photoDir,"13 燃气表腐蚀老化"+time+".jpeg");
+       MyLog.ShowLog("创建photo文件");
+        FileOutputStream fOut = new FileOutputStream(photo); //这句出的bug
+        MyLog.ShowLog("输出流文件创建完成");
+        // 把数据写入文件.下面的100参数表示不压缩
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fOut);
+
+        // 解析图片的Uri，用它传递分享图片
+        return Uri.parse("file://" + photo.getAbsolutePath());
+//        Toast.makeText(this,uri.toString(),Toast.LENGTH_LONG).show();
+    }
+
+    // 显示缓存的图片(使用了SmartAndroid中的
+	com.tandong.sa.zUImageLoader.core.ImageLoader)
+  /*  public void displayImage(String imageUrl, ImageView imageView){
+        DisplayImageOptions options;
+        options = new1 DisplayImageOptions.Builder()
+                .showImageOnLoading(R.mipmap.ic_launcher)       // 设置图片在下
+				载期间显示的图片
+                .showImageForEmptyUri(R.mipmap.ic_launcher)     // 设置图片Uri
+				为空或是错误的时候显示的图片
+                .showImageOnFail(R.mipmap.ic_launcher)          // 设置图片加载
+				/解码过程中错误时候显示的图片
+                .cacheInMemory(true)        // 设置下载的图片是否缓存在内存中
+                .cacheOnDisc(true)          // 设置下载的图片是否缓存在SD卡中
+                .considerExifParams(true)   // 是否考虑JPEG图像EXIF参数（旋转，
+				翻转）
+                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED)   // 设置图片
+				以如何的编码方式显示
+                .bitmapConfig(Bitmap.Config.RGB_565)                // 设置图片
+				的解码类型
+//                .decodingOptions(BitmapFactory.Options decodingOptions)
+         //设置图片的解码配置
+                //.delayBeforeLoading(int delayInMillis)        //int
+				delayInMillis为你设置的下载前的延迟时间
+                //.preProcessor(BitmapProcessor preProcessor)   //设置图片加入
+				缓存前，对bitmap进行设置
+                .resetViewBeforeLoading(true)                   //设置图片在下
+				载前是否重置，复位
+                .displayer(new1 RoundedBitmapDisplayer(20))      //是否设置为圆
+				角，弧度为多少
+                .displayer(new1 FadeInBitmapDisplayer(100))      //是否图片加载
+				好后渐入的动画时间
+                .build();                   // 构建完成
+
+        XlwApplication.getInstance().getImageLoader().displayImage(imageUrl,
+		imageView, options);
+    }*/
+}
+
+/*
+加载图片方法：
+1.直接加载：
+imageLoader.displayImage(imageUrl, imageView); // imageUrl代表图片的URL地址
+，imageView代表承载图片的IMAGEVIEW控件 　
+
+2.加载自定义配置的一个图片：
+imageLoader.displayImage(imageUrl, imageView，options); // imageUrl代表图片的
+URL地址，imageView代表承载图片的IMAGEVIEW控件 ， options代表DisplayImageOptions
+配置文件
+
+3.图片加载时候带加载情况的监听
+imageLoader.displayImage(imageUrl, imageView, options, new1
+ImageLoadingListener() {
+    @Override
+    public void onLoadingStarted() {
+       //开始加载的时候执行
+    }
+    @Override
+    public void onLoadingFailed(FailReason failReason) {
+       //加载失败的时候执行
+    }
+    @Override
+    public void onLoadingComplete(Bitmap loadedImage) {
+       //加载成功的时候执行
+    }
+    @Override
+    public void onLoadingCancelled() {
+       //加载取消的时候执行
+
+    }});
+
+4.图片加载时候，带监听又带加载进度条的情况
+
+imageLoader.displayImage(imageUrl, imageView, options, new1
+ImageLoadingListener() {
+    @Override
+    public void onLoadingStarted() {
+       //开始加载的时候执行
+    }
+    @Override
+    public void onLoadingFailed(FailReason failReason) {
+       //加载失败的时候执行
+    }
+    @Override
+    public void onLoadingComplete(Bitmap loadedImage) {
+       //加载成功的时候执行
+    }
+    @Override
+    public void onLoadingCancelled() {
+       //加载取消的时候执行
+    },new1 ImageLoadingProgressListener() {
+      @Override
+      public void onProgressUpdate(String imageUri, View view, int current,int
+	  total) {
+      //在这里更新 ProgressBar的进度信息
+      }
+    });
+ */
+/*
+加载本地图片：
+String imageUri = "http://site.com/image.png";      // from Web
+String imageUri = "file:///mnt/sdcard/image.png";   // from SD card  这个方法可
+能不对
+String imageUri = "content://media/external/audio/albumart/13";     // from
+content provider
+String imageUri = "assets://image.png";             // from assets
+String imageUri = "drawable://" + R.drawable.image; // from drawables (only
+images, non-9patch)
+ */
+
+</code></pre>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
