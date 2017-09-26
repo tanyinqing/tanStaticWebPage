@@ -468,36 +468,91 @@ vertical-align:1px;
 </style>
 </head>
 <body>
-<table>
-<thead>
-<tr>
-    <th>站点</th>
-    <th>描述</th>
-    <th>站点</th>
-    <th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td> http://asciiflow.com/ </td>
-    <td> 这是一个画图的网站 </td>
-    <td> http://w3school.com.cn/ </td>
-    <td> w3school网站中国版 学习h5和样式  </td>
-</tr>
-<tr>
-    <td> http://bbs.csdn.net/home </td>
-    <td> IT 知名论坛 </td>
-    <td> https://www.w3schools.com/ </td>
-    <td> w3school网站 学习h5和样式 </td>
-</tr>
-<tr>
-    <td> https://docs.oracle.com/javase/7/docs/api/    java在线文档</td>
-    <td>关键词：java.api.doc </td>
-    <td> </td>
-    <td>  </td>
-</tr>
-</tbody>
-</table>
+
+   <table>
+    <thead>
+    <tr>
+        <th>类</th>
+        <th>类</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td >数据查询</td>
+        <td> <pre><code class="lang-java">
+            /每一页显示的行数
+	public int pageSize = 10;
+            //列表数据
+	private List<LocalUser> userList = null;
+
+    //定义数据库操作实现类
+	private UserInsideDao userDao = null;
+
+   //初始化数据库操作实现类
+	    userDao = new UserInsideDao(DBInsideSampleActivity.this);
+
+	    //(1)获取数据库
+	  	userDao.startReadableDatabase();
+	  	//(2)执行查询    userDao表明查询的表  按create_time进行desc升序排列  pageSize显示的条数   查询从0到10的数据
+	    userList = userDao.queryList(null, null, null, null, null, "create_time desc limit "+String.valueOf(pageSize)+ " offset " +0, null);
+	   //这个是总的条数
+	    totalCount = userDao.queryCount(null, null);
+	    //(3)关闭数据库
+	  	userDao.closeDatabase();
+</code></pre></td>
+    </tr>
+
+    <tr>
+        <td >增加字段</td>
+        <td> <pre><code class="lang-java">
+           //增加记录的按钮
+        final Button addBtn = (Button)headerView.findViewById(R.id.addBtn);
+        //增加的字段数据
+        final EditText mEditText = (EditText)headerView.findViewById(R.id.add_name);
+        addBtn.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				//获取用户输入的数据
+				String name = mEditText.getText().toString();
+				if(name!=null && !"".equals(name.trim())){
+					//增加一条数据到数据库
+					LocalUser u = new LocalUser();
+					u.setName(name);
+					saveData(u);
+				}else{
+					AbToastUtil.showToast(DBInsideSampleActivity.this,"请输入名称!");
+				}
+			}
+        });
+
+            /**
+	 *
+	 * 描述：保存数据
+	 * @param u
+	 * @throws
+	 */
+	public void saveData(LocalUser u){
+		//(1)获取数据库
+		userDao.startWritableDatabase(false);
+		//(2)执行插入
+		long id = userDao.insert(u);
+		//(3)关闭数据库
+		userDao.closeDatabase();
+
+		//showToast("插入数据成功,ID:"+id);
+		//插入数据成功
+		if(id!=-1){
+			//查询数据
+			queryData();
+		}
+	}
+</code></pre></td>
+    </tr>
+
+       </tbody>
+    </table>
+
 
 </body>
 </html>
