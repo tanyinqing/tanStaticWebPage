@@ -28,3 +28,8 @@ D:\TanYinQingJavaEEStudy\安卓设计文档docs\docs\reference\android\app
 <!-- ======== START OF CLASS DATA ======== -->   表示文档的开始
 
 文档的上边都有索引，可以跳转到具体的位置
+
+安卓文档中引用代码采用的语法
+<pre class="prettyprint">
+
+  </pre>
