@@ -17,7 +17,7 @@ Java文档关键词
 字段详细信息
 
 java文档的本地目录
-D:\TanYinQingJavaEEStudy\api\java
+D:\TanYinQingJavaEEStudy\api\java\lang
 <LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">  修改样式位置
 <META http-equiv="Content-Type" content="text/html; charset=utf-8">    更改文件编码格式
 android文档的本地目录
