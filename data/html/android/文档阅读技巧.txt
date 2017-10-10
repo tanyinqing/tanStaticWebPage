@@ -15,3 +15,9 @@ Java文档关键词
 构造方法摘要
 方法摘要
 字段详细信息
+
+java文档的本地目录
+D:\TanYinQingJavaEEStudy\api\java
+<LINK REL ="stylesheet" TYPE="text/css" HREF="stylesheet.css" TITLE="Style">  修改样式位置
+android文档的本地目录
+D:\TanYinQingJavaEEStudy\安卓设计文档docs\docs\reference\android
